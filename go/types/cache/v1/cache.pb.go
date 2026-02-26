@@ -23,7 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type StoreCollectionstPb struct {
+type StoreCollectionsPb struct {
 	state              protoimpl.MessageState `protogen:"open.v1"`
 	BundleCollection   string                 `protobuf:"bytes,1,opt,name=bundle_collection,json=bundleCollection,proto3" json:"bundle_collection,omitempty"`
 	FilesCollection    string                 `protobuf:"bytes,2,opt,name=files_collection,json=filesCollection,proto3" json:"files_collection,omitempty"`
@@ -32,20 +32,20 @@ type StoreCollectionstPb struct {
 	sizeCache          protoimpl.SizeCache
 }
 
-func (x *StoreCollectionstPb) Reset() {
-	*x = StoreCollectionstPb{}
+func (x *StoreCollectionsPb) Reset() {
+	*x = StoreCollectionsPb{}
 	mi := &file_src_types_cache_v1_cache_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *StoreCollectionstPb) String() string {
+func (x *StoreCollectionsPb) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*StoreCollectionstPb) ProtoMessage() {}
+func (*StoreCollectionsPb) ProtoMessage() {}
 
-func (x *StoreCollectionstPb) ProtoReflect() protoreflect.Message {
+func (x *StoreCollectionsPb) ProtoReflect() protoreflect.Message {
 	mi := &file_src_types_cache_v1_cache_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -57,26 +57,26 @@ func (x *StoreCollectionstPb) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use StoreCollectionstPb.ProtoReflect.Descriptor instead.
-func (*StoreCollectionstPb) Descriptor() ([]byte, []int) {
+// Deprecated: Use StoreCollectionsPb.ProtoReflect.Descriptor instead.
+func (*StoreCollectionsPb) Descriptor() ([]byte, []int) {
 	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *StoreCollectionstPb) GetBundleCollection() string {
+func (x *StoreCollectionsPb) GetBundleCollection() string {
 	if x != nil {
 		return x.BundleCollection
 	}
 	return ""
 }
 
-func (x *StoreCollectionstPb) GetFilesCollection() string {
+func (x *StoreCollectionsPb) GetFilesCollection() string {
 	if x != nil {
 		return x.FilesCollection
 	}
 	return ""
 }
 
-func (x *StoreCollectionstPb) GetProfilesCollection() string {
+func (x *StoreCollectionsPb) GetProfilesCollection() string {
 	if x != nil {
 		return x.ProfilesCollection
 	}
@@ -87,8 +87,8 @@ var File_src_types_cache_v1_cache_proto protoreflect.FileDescriptor
 
 const file_src_types_cache_v1_cache_proto_rawDesc = "" +
 	"\n" +
-	"\x1esrc/types/cache/v1/cache.proto\x12\x12src.types.cache.v1\"\x9e\x01\n" +
-	"\x13StoreCollectionstPb\x12+\n" +
+	"\x1esrc/types/cache/v1/cache.proto\x12\x12src.types.cache.v1\"\x9d\x01\n" +
+	"\x12StoreCollectionsPb\x12+\n" +
 	"\x11bundle_collection\x18\x01 \x01(\tR\x10bundleCollection\x12)\n" +
 	"\x10files_collection\x18\x02 \x01(\tR\x0ffilesCollection\x12/\n" +
 	"\x13profiles_collection\x18\x03 \x01(\tR\x12profilesCollectionB>Z<github.com/tinywideclouds/gen-llm/go/types/cache/v1;cache_v1b\x06proto3"
@@ -107,7 +107,7 @@ func file_src_types_cache_v1_cache_proto_rawDescGZIP() []byte {
 
 var file_src_types_cache_v1_cache_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
 var file_src_types_cache_v1_cache_proto_goTypes = []any{
-	(*StoreCollectionstPb)(nil), // 0: src.types.cache.v1.StoreCollectionstPb
+	(*StoreCollectionsPb)(nil), // 0: src.types.cache.v1.StoreCollectionsPb
 }
 var file_src_types_cache_v1_cache_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
