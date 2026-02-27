@@ -331,6 +331,296 @@ func (x *GenerateStreamRequestPb) GetInlineAttachments() []*NetworkAttachmentPb 
 	return nil
 }
 
+type FileStatePb struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Content       string                 `protobuf:"bytes,1,opt,name=content,proto3" json:"content,omitempty"`
+	IsDeleted     bool                   `protobuf:"varint,2,opt,name=is_deleted,json=isDeleted,proto3" json:"is_deleted,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileStatePb) Reset() {
+	*x = FileStatePb{}
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileStatePb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileStatePb) ProtoMessage() {}
+
+func (x *FileStatePb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileStatePb.ProtoReflect.Descriptor instead.
+func (*FileStatePb) Descriptor() ([]byte, []int) {
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *FileStatePb) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+func (x *FileStatePb) GetIsDeleted() bool {
+	if x != nil {
+		return x.IsDeleted
+	}
+	return false
+}
+
+type ChangeProposalPb struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	FilePath      string                 `protobuf:"bytes,2,opt,name=file_path,json=filePath,proto3" json:"file_path,omitempty"`
+	NewContent    string                 `protobuf:"bytes,3,opt,name=new_content,json=newContent,proto3" json:"new_content,omitempty"`
+	Reasoning     string                 `protobuf:"bytes,4,opt,name=reasoning,proto3" json:"reasoning,omitempty"`
+	Status        string                 `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`                        // e.g., "pending", "accepted", "rejected"
+	CreatedAt     string                 `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"` // ISO 8601 / RFC3339 format
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ChangeProposalPb) Reset() {
+	*x = ChangeProposalPb{}
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ChangeProposalPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ChangeProposalPb) ProtoMessage() {}
+
+func (x *ChangeProposalPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ChangeProposalPb.ProtoReflect.Descriptor instead.
+func (*ChangeProposalPb) Descriptor() ([]byte, []int) {
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ChangeProposalPb) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *ChangeProposalPb) GetFilePath() string {
+	if x != nil {
+		return x.FilePath
+	}
+	return ""
+}
+
+func (x *ChangeProposalPb) GetNewContent() string {
+	if x != nil {
+		return x.NewContent
+	}
+	return ""
+}
+
+func (x *ChangeProposalPb) GetReasoning() string {
+	if x != nil {
+		return x.Reasoning
+	}
+	return ""
+}
+
+func (x *ChangeProposalPb) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *ChangeProposalPb) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+type CompiledCachePb struct {
+	state      protoimpl.MessageState `protogen:"open.v1"`
+	Id         string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	ExternalId string                 `protobuf:"bytes,2,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"` // e.g., "cachedContents/12345"
+	Provider   string                 `protobuf:"bytes,3,opt,name=provider,proto3" json:"provider,omitempty"`                       // e.g., "gemini"
+	// Reusing your existing NetworkAttachmentPb
+	AttachmentsUsed []*NetworkAttachmentPb `protobuf:"bytes,4,rep,name=attachments_used,json=attachmentsUsed,proto3" json:"attachments_used,omitempty"`
+	CreatedAt       string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CompiledCachePb) Reset() {
+	*x = CompiledCachePb{}
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CompiledCachePb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CompiledCachePb) ProtoMessage() {}
+
+func (x *CompiledCachePb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CompiledCachePb.ProtoReflect.Descriptor instead.
+func (*CompiledCachePb) Descriptor() ([]byte, []int) {
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *CompiledCachePb) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *CompiledCachePb) GetExternalId() string {
+	if x != nil {
+		return x.ExternalId
+	}
+	return ""
+}
+
+func (x *CompiledCachePb) GetProvider() string {
+	if x != nil {
+		return x.Provider
+	}
+	return ""
+}
+
+func (x *CompiledCachePb) GetAttachmentsUsed() []*NetworkAttachmentPb {
+	if x != nil {
+		return x.AttachmentsUsed
+	}
+	return nil
+}
+
+func (x *CompiledCachePb) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+type SessionPb struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	CompiledCacheId string                 `protobuf:"bytes,2,opt,name=compiled_cache_id,json=compiledCacheId,proto3" json:"compiled_cache_id,omitempty"`
+	// Protobuf natively supports maps, perfect for our file lookups!
+	AcceptedOverlays map[string]*FileStatePb      `protobuf:"bytes,3,rep,name=accepted_overlays,json=acceptedOverlays,proto3" json:"accepted_overlays,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	PendingProposals map[string]*ChangeProposalPb `protobuf:"bytes,4,rep,name=pending_proposals,json=pendingProposals,proto3" json:"pending_proposals,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
+	UpdatedAt        string                       `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *SessionPb) Reset() {
+	*x = SessionPb{}
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SessionPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SessionPb) ProtoMessage() {}
+
+func (x *SessionPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SessionPb.ProtoReflect.Descriptor instead.
+func (*SessionPb) Descriptor() ([]byte, []int) {
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *SessionPb) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *SessionPb) GetCompiledCacheId() string {
+	if x != nil {
+		return x.CompiledCacheId
+	}
+	return ""
+}
+
+func (x *SessionPb) GetAcceptedOverlays() map[string]*FileStatePb {
+	if x != nil {
+		return x.AcceptedOverlays
+	}
+	return nil
+}
+
+func (x *SessionPb) GetPendingProposals() map[string]*ChangeProposalPb {
+	if x != nil {
+		return x.PendingProposals
+	}
+	return nil
+}
+
+func (x *SessionPb) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
 var File_src_types_builder_v1_builder_proto protoreflect.FileDescriptor
 
 const file_src_types_builder_v1_builder_proto_rawDesc = "" +
@@ -361,7 +651,41 @@ const file_src_types_builder_v1_builder_proto_rawDesc = "" +
 	"\ahistory\x18\x03 \x03(\v2&.src.types.builder.v1.NetworkMessagePbR\ahistory\x12+\n" +
 	"\x0fgemini_cache_id\x18\x04 \x01(\tH\x00R\rgeminiCacheId\x88\x01\x01\x12X\n" +
 	"\x12inline_attachments\x18\x05 \x03(\v2).src.types.builder.v1.NetworkAttachmentPbR\x11inlineAttachmentsB\x12\n" +
-	"\x10_gemini_cache_idBBZ@github.com/tinywideclouds/gen-llm/go/types/builder/v1;builder_v1b\x06proto3"
+	"\x10_gemini_cache_id\"F\n" +
+	"\vFileStatePb\x12\x18\n" +
+	"\acontent\x18\x01 \x01(\tR\acontent\x12\x1d\n" +
+	"\n" +
+	"is_deleted\x18\x02 \x01(\bR\tisDeleted\"\xb5\x01\n" +
+	"\x10ChangeProposalPb\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1b\n" +
+	"\tfile_path\x18\x02 \x01(\tR\bfilePath\x12\x1f\n" +
+	"\vnew_content\x18\x03 \x01(\tR\n" +
+	"newContent\x12\x1c\n" +
+	"\treasoning\x18\x04 \x01(\tR\treasoning\x12\x16\n" +
+	"\x06status\x18\x05 \x01(\tR\x06status\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x06 \x01(\tR\tcreatedAt\"\xd3\x01\n" +
+	"\x0fCompiledCachePb\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1f\n" +
+	"\vexternal_id\x18\x02 \x01(\tR\n" +
+	"externalId\x12\x1a\n" +
+	"\bprovider\x18\x03 \x01(\tR\bprovider\x12T\n" +
+	"\x10attachments_used\x18\x04 \x03(\v2).src.types.builder.v1.NetworkAttachmentPbR\x0fattachmentsUsed\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\"\x83\x04\n" +
+	"\tSessionPb\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12*\n" +
+	"\x11compiled_cache_id\x18\x02 \x01(\tR\x0fcompiledCacheId\x12b\n" +
+	"\x11accepted_overlays\x18\x03 \x03(\v25.src.types.builder.v1.SessionPb.AcceptedOverlaysEntryR\x10acceptedOverlays\x12b\n" +
+	"\x11pending_proposals\x18\x04 \x03(\v25.src.types.builder.v1.SessionPb.PendingProposalsEntryR\x10pendingProposals\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\x05 \x01(\tR\tupdatedAt\x1af\n" +
+	"\x15AcceptedOverlaysEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x127\n" +
+	"\x05value\x18\x02 \x01(\v2!.src.types.builder.v1.FileStatePbR\x05value:\x028\x01\x1ak\n" +
+	"\x15PendingProposalsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12<\n" +
+	"\x05value\x18\x02 \x01(\v2&.src.types.builder.v1.ChangeProposalPbR\x05value:\x028\x01BBZ@github.com/tinywideclouds/gen-llm/go/types/builder/v1;builder_v1b\x06proto3"
 
 var (
 	file_src_types_builder_v1_builder_proto_rawDescOnce sync.Once
@@ -375,23 +699,34 @@ func file_src_types_builder_v1_builder_proto_rawDescGZIP() []byte {
 	return file_src_types_builder_v1_builder_proto_rawDescData
 }
 
-var file_src_types_builder_v1_builder_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_src_types_builder_v1_builder_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_src_types_builder_v1_builder_proto_goTypes = []any{
 	(*NetworkAttachmentPb)(nil),     // 0: src.types.builder.v1.NetworkAttachmentPb
 	(*BuildCacheRequestPb)(nil),     // 1: src.types.builder.v1.BuildCacheRequestPb
 	(*BuildCacheResponsePb)(nil),    // 2: src.types.builder.v1.BuildCacheResponsePb
 	(*NetworkMessagePb)(nil),        // 3: src.types.builder.v1.NetworkMessagePb
 	(*GenerateStreamRequestPb)(nil), // 4: src.types.builder.v1.GenerateStreamRequestPb
+	(*FileStatePb)(nil),             // 5: src.types.builder.v1.FileStatePb
+	(*ChangeProposalPb)(nil),        // 6: src.types.builder.v1.ChangeProposalPb
+	(*CompiledCachePb)(nil),         // 7: src.types.builder.v1.CompiledCachePb
+	(*SessionPb)(nil),               // 8: src.types.builder.v1.SessionPb
+	nil,                             // 9: src.types.builder.v1.SessionPb.AcceptedOverlaysEntry
+	nil,                             // 10: src.types.builder.v1.SessionPb.PendingProposalsEntry
 }
 var file_src_types_builder_v1_builder_proto_depIdxs = []int32{
-	0, // 0: src.types.builder.v1.BuildCacheRequestPb.attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
-	3, // 1: src.types.builder.v1.GenerateStreamRequestPb.history:type_name -> src.types.builder.v1.NetworkMessagePb
-	0, // 2: src.types.builder.v1.GenerateStreamRequestPb.inline_attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	0,  // 0: src.types.builder.v1.BuildCacheRequestPb.attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
+	3,  // 1: src.types.builder.v1.GenerateStreamRequestPb.history:type_name -> src.types.builder.v1.NetworkMessagePb
+	0,  // 2: src.types.builder.v1.GenerateStreamRequestPb.inline_attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
+	0,  // 3: src.types.builder.v1.CompiledCachePb.attachments_used:type_name -> src.types.builder.v1.NetworkAttachmentPb
+	9,  // 4: src.types.builder.v1.SessionPb.accepted_overlays:type_name -> src.types.builder.v1.SessionPb.AcceptedOverlaysEntry
+	10, // 5: src.types.builder.v1.SessionPb.pending_proposals:type_name -> src.types.builder.v1.SessionPb.PendingProposalsEntry
+	5,  // 6: src.types.builder.v1.SessionPb.AcceptedOverlaysEntry.value:type_name -> src.types.builder.v1.FileStatePb
+	6,  // 7: src.types.builder.v1.SessionPb.PendingProposalsEntry.value:type_name -> src.types.builder.v1.ChangeProposalPb
+	8,  // [8:8] is the sub-list for method output_type
+	8,  // [8:8] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_src_types_builder_v1_builder_proto_init() }
@@ -407,7 +742,7 @@ func file_src_types_builder_v1_builder_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_src_types_builder_v1_builder_proto_rawDesc), len(file_src_types_builder_v1_builder_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
