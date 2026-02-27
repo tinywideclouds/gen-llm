@@ -391,6 +391,7 @@ type ChangeProposalPb struct {
 	Reasoning     string                 `protobuf:"bytes,4,opt,name=reasoning,proto3" json:"reasoning,omitempty"`
 	Status        string                 `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`                        // e.g., "pending", "accepted", "rejected"
 	CreatedAt     string                 `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"` // ISO 8601 / RFC3339 format
+	SessionId     string                 `protobuf:"bytes,7,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -463,6 +464,13 @@ func (x *ChangeProposalPb) GetStatus() string {
 func (x *ChangeProposalPb) GetCreatedAt() string {
 	if x != nil {
 		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *ChangeProposalPb) GetSessionId() string {
+	if x != nil {
+		return x.SessionId
 	}
 	return ""
 }
@@ -548,12 +556,9 @@ type SessionPb struct {
 	state           protoimpl.MessageState `protogen:"open.v1"`
 	Id              string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	CompiledCacheId string                 `protobuf:"bytes,2,opt,name=compiled_cache_id,json=compiledCacheId,proto3" json:"compiled_cache_id,omitempty"`
-	// Protobuf natively supports maps, perfect for our file lookups!
-	AcceptedOverlays map[string]*FileStatePb      `protobuf:"bytes,3,rep,name=accepted_overlays,json=acceptedOverlays,proto3" json:"accepted_overlays,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	PendingProposals map[string]*ChangeProposalPb `protobuf:"bytes,4,rep,name=pending_proposals,json=pendingProposals,proto3" json:"pending_proposals,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
-	UpdatedAt        string                       `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	unknownFields    protoimpl.UnknownFields
-	sizeCache        protoimpl.SizeCache
+	UpdatedAt       string                 `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *SessionPb) Reset() {
@@ -600,20 +605,6 @@ func (x *SessionPb) GetCompiledCacheId() string {
 	return ""
 }
 
-func (x *SessionPb) GetAcceptedOverlays() map[string]*FileStatePb {
-	if x != nil {
-		return x.AcceptedOverlays
-	}
-	return nil
-}
-
-func (x *SessionPb) GetPendingProposals() map[string]*ChangeProposalPb {
-	if x != nil {
-		return x.PendingProposals
-	}
-	return nil
-}
-
 func (x *SessionPb) GetUpdatedAt() string {
 	if x != nil {
 		return x.UpdatedAt
@@ -655,7 +646,7 @@ const file_src_types_builder_v1_builder_proto_rawDesc = "" +
 	"\vFileStatePb\x12\x18\n" +
 	"\acontent\x18\x01 \x01(\tR\acontent\x12\x1d\n" +
 	"\n" +
-	"is_deleted\x18\x02 \x01(\bR\tisDeleted\"\xb5\x01\n" +
+	"is_deleted\x18\x02 \x01(\bR\tisDeleted\"\xd4\x01\n" +
 	"\x10ChangeProposalPb\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1b\n" +
 	"\tfile_path\x18\x02 \x01(\tR\bfilePath\x12\x1f\n" +
@@ -664,7 +655,9 @@ const file_src_types_builder_v1_builder_proto_rawDesc = "" +
 	"\treasoning\x18\x04 \x01(\tR\treasoning\x12\x16\n" +
 	"\x06status\x18\x05 \x01(\tR\x06status\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x06 \x01(\tR\tcreatedAt\"\xd3\x01\n" +
+	"created_at\x18\x06 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"session_id\x18\a \x01(\tR\tsessionId\"\xd3\x01\n" +
 	"\x0fCompiledCachePb\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1f\n" +
 	"\vexternal_id\x18\x02 \x01(\tR\n" +
@@ -672,20 +665,12 @@ const file_src_types_builder_v1_builder_proto_rawDesc = "" +
 	"\bprovider\x18\x03 \x01(\tR\bprovider\x12T\n" +
 	"\x10attachments_used\x18\x04 \x03(\v2).src.types.builder.v1.NetworkAttachmentPbR\x0fattachmentsUsed\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\tR\tcreatedAt\"\x83\x04\n" +
+	"created_at\x18\x05 \x01(\tR\tcreatedAt\"f\n" +
 	"\tSessionPb\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12*\n" +
-	"\x11compiled_cache_id\x18\x02 \x01(\tR\x0fcompiledCacheId\x12b\n" +
-	"\x11accepted_overlays\x18\x03 \x03(\v25.src.types.builder.v1.SessionPb.AcceptedOverlaysEntryR\x10acceptedOverlays\x12b\n" +
-	"\x11pending_proposals\x18\x04 \x03(\v25.src.types.builder.v1.SessionPb.PendingProposalsEntryR\x10pendingProposals\x12\x1d\n" +
+	"\x11compiled_cache_id\x18\x02 \x01(\tR\x0fcompiledCacheId\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x05 \x01(\tR\tupdatedAt\x1af\n" +
-	"\x15AcceptedOverlaysEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x127\n" +
-	"\x05value\x18\x02 \x01(\v2!.src.types.builder.v1.FileStatePbR\x05value:\x028\x01\x1ak\n" +
-	"\x15PendingProposalsEntry\x12\x10\n" +
-	"\x03key\x18\x01 \x01(\tR\x03key\x12<\n" +
-	"\x05value\x18\x02 \x01(\v2&.src.types.builder.v1.ChangeProposalPbR\x05value:\x028\x01BBZ@github.com/tinywideclouds/gen-llm/go/types/builder/v1;builder_v1b\x06proto3"
+	"updated_at\x18\x05 \x01(\tR\tupdatedAtBBZ@github.com/tinywideclouds/gen-llm/go/types/builder/v1;builder_v1b\x06proto3"
 
 var (
 	file_src_types_builder_v1_builder_proto_rawDescOnce sync.Once
@@ -699,7 +684,7 @@ func file_src_types_builder_v1_builder_proto_rawDescGZIP() []byte {
 	return file_src_types_builder_v1_builder_proto_rawDescData
 }
 
-var file_src_types_builder_v1_builder_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_src_types_builder_v1_builder_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_src_types_builder_v1_builder_proto_goTypes = []any{
 	(*NetworkAttachmentPb)(nil),     // 0: src.types.builder.v1.NetworkAttachmentPb
 	(*BuildCacheRequestPb)(nil),     // 1: src.types.builder.v1.BuildCacheRequestPb
@@ -710,23 +695,17 @@ var file_src_types_builder_v1_builder_proto_goTypes = []any{
 	(*ChangeProposalPb)(nil),        // 6: src.types.builder.v1.ChangeProposalPb
 	(*CompiledCachePb)(nil),         // 7: src.types.builder.v1.CompiledCachePb
 	(*SessionPb)(nil),               // 8: src.types.builder.v1.SessionPb
-	nil,                             // 9: src.types.builder.v1.SessionPb.AcceptedOverlaysEntry
-	nil,                             // 10: src.types.builder.v1.SessionPb.PendingProposalsEntry
 }
 var file_src_types_builder_v1_builder_proto_depIdxs = []int32{
-	0,  // 0: src.types.builder.v1.BuildCacheRequestPb.attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
-	3,  // 1: src.types.builder.v1.GenerateStreamRequestPb.history:type_name -> src.types.builder.v1.NetworkMessagePb
-	0,  // 2: src.types.builder.v1.GenerateStreamRequestPb.inline_attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
-	0,  // 3: src.types.builder.v1.CompiledCachePb.attachments_used:type_name -> src.types.builder.v1.NetworkAttachmentPb
-	9,  // 4: src.types.builder.v1.SessionPb.accepted_overlays:type_name -> src.types.builder.v1.SessionPb.AcceptedOverlaysEntry
-	10, // 5: src.types.builder.v1.SessionPb.pending_proposals:type_name -> src.types.builder.v1.SessionPb.PendingProposalsEntry
-	5,  // 6: src.types.builder.v1.SessionPb.AcceptedOverlaysEntry.value:type_name -> src.types.builder.v1.FileStatePb
-	6,  // 7: src.types.builder.v1.SessionPb.PendingProposalsEntry.value:type_name -> src.types.builder.v1.ChangeProposalPb
-	8,  // [8:8] is the sub-list for method output_type
-	8,  // [8:8] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	0, // 0: src.types.builder.v1.BuildCacheRequestPb.attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
+	3, // 1: src.types.builder.v1.GenerateStreamRequestPb.history:type_name -> src.types.builder.v1.NetworkMessagePb
+	0, // 2: src.types.builder.v1.GenerateStreamRequestPb.inline_attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
+	0, // 3: src.types.builder.v1.CompiledCachePb.attachments_used:type_name -> src.types.builder.v1.NetworkAttachmentPb
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_src_types_builder_v1_builder_proto_init() }
@@ -742,7 +721,7 @@ func file_src_types_builder_v1_builder_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_src_types_builder_v1_builder_proto_rawDesc), len(file_src_types_builder_v1_builder_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
