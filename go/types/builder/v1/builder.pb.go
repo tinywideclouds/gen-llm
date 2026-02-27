@@ -384,14 +384,16 @@ func (x *FileStatePb) GetIsDeleted() bool {
 }
 
 type ChangeProposalPb struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	FilePath      string                 `protobuf:"bytes,2,opt,name=file_path,json=filePath,proto3" json:"file_path,omitempty"`
-	NewContent    string                 `protobuf:"bytes,3,opt,name=new_content,json=newContent,proto3" json:"new_content,omitempty"`
-	Reasoning     string                 `protobuf:"bytes,4,opt,name=reasoning,proto3" json:"reasoning,omitempty"`
-	Status        string                 `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`                        // e.g., "pending", "accepted", "rejected"
-	CreatedAt     string                 `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"` // ISO 8601 / RFC3339 format
-	SessionId     string                 `protobuf:"bytes,7,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	Id       string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	FilePath string                 `protobuf:"bytes,2,opt,name=file_path,json=filePath,proto3" json:"file_path,omitempty"`
+	// Provide either a patch OR the full new content
+	Patch         *string `protobuf:"bytes,3,opt,name=patch,proto3,oneof" json:"patch,omitempty"`
+	NewContent    *string `protobuf:"bytes,4,opt,name=new_content,json=newContent,proto3,oneof" json:"new_content,omitempty"`
+	Reasoning     string  `protobuf:"bytes,5,opt,name=reasoning,proto3" json:"reasoning,omitempty"`
+	Status        string  `protobuf:"bytes,6,opt,name=status,proto3" json:"status,omitempty"`
+	CreatedAt     string  `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	SessionId     string  `protobuf:"bytes,8,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -440,9 +442,16 @@ func (x *ChangeProposalPb) GetFilePath() string {
 	return ""
 }
 
+func (x *ChangeProposalPb) GetPatch() string {
+	if x != nil && x.Patch != nil {
+		return *x.Patch
+	}
+	return ""
+}
+
 func (x *ChangeProposalPb) GetNewContent() string {
-	if x != nil {
-		return x.NewContent
+	if x != nil && x.NewContent != nil {
+		return *x.NewContent
 	}
 	return ""
 }
@@ -646,18 +655,21 @@ const file_src_types_builder_v1_builder_proto_rawDesc = "" +
 	"\vFileStatePb\x12\x18\n" +
 	"\acontent\x18\x01 \x01(\tR\acontent\x12\x1d\n" +
 	"\n" +
-	"is_deleted\x18\x02 \x01(\bR\tisDeleted\"\xd4\x01\n" +
+	"is_deleted\x18\x02 \x01(\bR\tisDeleted\"\x8e\x02\n" +
 	"\x10ChangeProposalPb\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1b\n" +
-	"\tfile_path\x18\x02 \x01(\tR\bfilePath\x12\x1f\n" +
-	"\vnew_content\x18\x03 \x01(\tR\n" +
-	"newContent\x12\x1c\n" +
-	"\treasoning\x18\x04 \x01(\tR\treasoning\x12\x16\n" +
-	"\x06status\x18\x05 \x01(\tR\x06status\x12\x1d\n" +
+	"\tfile_path\x18\x02 \x01(\tR\bfilePath\x12\x19\n" +
+	"\x05patch\x18\x03 \x01(\tH\x00R\x05patch\x88\x01\x01\x12$\n" +
+	"\vnew_content\x18\x04 \x01(\tH\x01R\n" +
+	"newContent\x88\x01\x01\x12\x1c\n" +
+	"\treasoning\x18\x05 \x01(\tR\treasoning\x12\x16\n" +
+	"\x06status\x18\x06 \x01(\tR\x06status\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x06 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\a \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"session_id\x18\a \x01(\tR\tsessionId\"\xd3\x01\n" +
+	"session_id\x18\b \x01(\tR\tsessionIdB\b\n" +
+	"\x06_patchB\x0e\n" +
+	"\f_new_content\"\xd3\x01\n" +
 	"\x0fCompiledCachePb\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1f\n" +
 	"\vexternal_id\x18\x02 \x01(\tR\n" +
@@ -715,6 +727,7 @@ func file_src_types_builder_v1_builder_proto_init() {
 	}
 	file_src_types_builder_v1_builder_proto_msgTypes[0].OneofWrappers = []any{}
 	file_src_types_builder_v1_builder_proto_msgTypes[4].OneofWrappers = []any{}
+	file_src_types_builder_v1_builder_proto_msgTypes[6].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
