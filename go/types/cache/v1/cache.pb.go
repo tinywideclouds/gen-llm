@@ -83,6 +83,562 @@ func (x *StoreCollectionsPb) GetProfilesCollection() string {
 	return ""
 }
 
+type FilterRulesPb struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Include       []string               `protobuf:"bytes,1,rep,name=include,proto3" json:"include,omitempty"`
+	Exclude       []string               `protobuf:"bytes,2,rep,name=exclude,proto3" json:"exclude,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FilterRulesPb) Reset() {
+	*x = FilterRulesPb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FilterRulesPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FilterRulesPb) ProtoMessage() {}
+
+func (x *FilterRulesPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FilterRulesPb.ProtoReflect.Descriptor instead.
+func (*FilterRulesPb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *FilterRulesPb) GetInclude() []string {
+	if x != nil {
+		return x.Include
+	}
+	return nil
+}
+
+func (x *FilterRulesPb) GetExclude() []string {
+	if x != nil {
+		return x.Exclude
+	}
+	return nil
+}
+
+type ProfilePb struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	RulesYaml     string                 `protobuf:"bytes,3,opt,name=rules_yaml,json=rulesYaml,proto3" json:"rules_yaml,omitempty"`
+	CreatedAt     string                 `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     string                 `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProfilePb) Reset() {
+	*x = ProfilePb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProfilePb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProfilePb) ProtoMessage() {}
+
+func (x *ProfilePb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProfilePb.ProtoReflect.Descriptor instead.
+func (*ProfilePb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ProfilePb) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *ProfilePb) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ProfilePb) GetRulesYaml() string {
+	if x != nil {
+		return x.RulesYaml
+	}
+	return ""
+}
+
+func (x *ProfilePb) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *ProfilePb) GetUpdatedAt() string {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return ""
+}
+
+type CacheAnalysisPb struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	TotalFiles     int32                  `protobuf:"varint,1,opt,name=total_files,json=totalFiles,proto3" json:"total_files,omitempty"`
+	TotalSizeBytes int32                  `protobuf:"varint,2,opt,name=total_size_bytes,json=totalSizeBytes,proto3" json:"total_size_bytes,omitempty"`
+	Extensions     map[string]int32       `protobuf:"bytes,3,rep,name=extensions,proto3" json:"extensions,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"varint,2,opt,name=value"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *CacheAnalysisPb) Reset() {
+	*x = CacheAnalysisPb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CacheAnalysisPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CacheAnalysisPb) ProtoMessage() {}
+
+func (x *CacheAnalysisPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CacheAnalysisPb.ProtoReflect.Descriptor instead.
+func (*CacheAnalysisPb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *CacheAnalysisPb) GetTotalFiles() int32 {
+	if x != nil {
+		return x.TotalFiles
+	}
+	return 0
+}
+
+func (x *CacheAnalysisPb) GetTotalSizeBytes() int32 {
+	if x != nil {
+		return x.TotalSizeBytes
+	}
+	return 0
+}
+
+func (x *CacheAnalysisPb) GetExtensions() map[string]int32 {
+	if x != nil {
+		return x.Extensions
+	}
+	return nil
+}
+
+type CacheMetadataPb struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	Id              string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Repo            string                 `protobuf:"bytes,2,opt,name=repo,proto3" json:"repo,omitempty"`
+	Branch          string                 `protobuf:"bytes,3,opt,name=branch,proto3" json:"branch,omitempty"`
+	SyncedCommitSha string                 `protobuf:"bytes,4,opt,name=synced_commit_sha,json=syncedCommitSha,proto3" json:"synced_commit_sha,omitempty"`
+	LastSyncedAt    int64                  `protobuf:"varint,5,opt,name=last_synced_at,json=lastSyncedAt,proto3" json:"last_synced_at,omitempty"`
+	FileCount       int32                  `protobuf:"varint,6,opt,name=file_count,json=fileCount,proto3" json:"file_count,omitempty"`
+	Status          string                 `protobuf:"bytes,7,opt,name=status,proto3" json:"status,omitempty"`
+	Analysis        *CacheAnalysisPb       `protobuf:"bytes,8,opt,name=analysis,proto3" json:"analysis,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *CacheMetadataPb) Reset() {
+	*x = CacheMetadataPb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CacheMetadataPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CacheMetadataPb) ProtoMessage() {}
+
+func (x *CacheMetadataPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CacheMetadataPb.ProtoReflect.Descriptor instead.
+func (*CacheMetadataPb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CacheMetadataPb) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *CacheMetadataPb) GetRepo() string {
+	if x != nil {
+		return x.Repo
+	}
+	return ""
+}
+
+func (x *CacheMetadataPb) GetBranch() string {
+	if x != nil {
+		return x.Branch
+	}
+	return ""
+}
+
+func (x *CacheMetadataPb) GetSyncedCommitSha() string {
+	if x != nil {
+		return x.SyncedCommitSha
+	}
+	return ""
+}
+
+func (x *CacheMetadataPb) GetLastSyncedAt() int64 {
+	if x != nil {
+		return x.LastSyncedAt
+	}
+	return 0
+}
+
+func (x *CacheMetadataPb) GetFileCount() int32 {
+	if x != nil {
+		return x.FileCount
+	}
+	return 0
+}
+
+func (x *CacheMetadataPb) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *CacheMetadataPb) GetAnalysis() *CacheAnalysisPb {
+	if x != nil {
+		return x.Analysis
+	}
+	return nil
+}
+
+type FileMetadataPb struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Path          string                 `protobuf:"bytes,1,opt,name=path,proto3" json:"path,omitempty"`
+	SizeBytes     int32                  `protobuf:"varint,2,opt,name=size_bytes,json=sizeBytes,proto3" json:"size_bytes,omitempty"`
+	Extension     string                 `protobuf:"bytes,3,opt,name=extension,proto3" json:"extension,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FileMetadataPb) Reset() {
+	*x = FileMetadataPb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FileMetadataPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FileMetadataPb) ProtoMessage() {}
+
+func (x *FileMetadataPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FileMetadataPb.ProtoReflect.Descriptor instead.
+func (*FileMetadataPb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *FileMetadataPb) GetPath() string {
+	if x != nil {
+		return x.Path
+	}
+	return ""
+}
+
+func (x *FileMetadataPb) GetSizeBytes() int32 {
+	if x != nil {
+		return x.SizeBytes
+	}
+	return 0
+}
+
+func (x *FileMetadataPb) GetExtension() string {
+	if x != nil {
+		return x.Extension
+	}
+	return ""
+}
+
+type CreateCacheRequestPb struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Repo          string                 `protobuf:"bytes,1,opt,name=repo,proto3" json:"repo,omitempty"`
+	Branch        string                 `protobuf:"bytes,2,opt,name=branch,proto3" json:"branch,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateCacheRequestPb) Reset() {
+	*x = CreateCacheRequestPb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateCacheRequestPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateCacheRequestPb) ProtoMessage() {}
+
+func (x *CreateCacheRequestPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateCacheRequestPb.ProtoReflect.Descriptor instead.
+func (*CreateCacheRequestPb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *CreateCacheRequestPb) GetRepo() string {
+	if x != nil {
+		return x.Repo
+	}
+	return ""
+}
+
+func (x *CreateCacheRequestPb) GetBranch() string {
+	if x != nil {
+		return x.Branch
+	}
+	return ""
+}
+
+type SyncRequestPb struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	IngestionRules *FilterRulesPb         `protobuf:"bytes,1,opt,name=ingestion_rules,json=ingestionRules,proto3" json:"ingestion_rules,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *SyncRequestPb) Reset() {
+	*x = SyncRequestPb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SyncRequestPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SyncRequestPb) ProtoMessage() {}
+
+func (x *SyncRequestPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SyncRequestPb.ProtoReflect.Descriptor instead.
+func (*SyncRequestPb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *SyncRequestPb) GetIngestionRules() *FilterRulesPb {
+	if x != nil {
+		return x.IngestionRules
+	}
+	return nil
+}
+
+type SyncResponsePb struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	CacheId        string                 `protobuf:"bytes,1,opt,name=cache_id,json=cacheId,proto3" json:"cache_id,omitempty"`
+	Status         string                 `protobuf:"bytes,2,opt,name=status,proto3" json:"status,omitempty"`
+	FilesProcessed int32                  `protobuf:"varint,3,opt,name=files_processed,json=filesProcessed,proto3" json:"files_processed,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *SyncResponsePb) Reset() {
+	*x = SyncResponsePb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SyncResponsePb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SyncResponsePb) ProtoMessage() {}
+
+func (x *SyncResponsePb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SyncResponsePb.ProtoReflect.Descriptor instead.
+func (*SyncResponsePb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *SyncResponsePb) GetCacheId() string {
+	if x != nil {
+		return x.CacheId
+	}
+	return ""
+}
+
+func (x *SyncResponsePb) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *SyncResponsePb) GetFilesProcessed() int32 {
+	if x != nil {
+		return x.FilesProcessed
+	}
+	return 0
+}
+
+type ProfileRequestPb struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	RulesYaml     string                 `protobuf:"bytes,2,opt,name=rules_yaml,json=rulesYaml,proto3" json:"rules_yaml,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ProfileRequestPb) Reset() {
+	*x = ProfileRequestPb{}
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ProfileRequestPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ProfileRequestPb) ProtoMessage() {}
+
+func (x *ProfileRequestPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_cache_v1_cache_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ProfileRequestPb.ProtoReflect.Descriptor instead.
+func (*ProfileRequestPb) Descriptor() ([]byte, []int) {
+	return file_src_types_cache_v1_cache_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ProfileRequestPb) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ProfileRequestPb) GetRulesYaml() string {
+	if x != nil {
+		return x.RulesYaml
+	}
+	return ""
+}
+
 var File_src_types_cache_v1_cache_proto protoreflect.FileDescriptor
 
 const file_src_types_cache_v1_cache_proto_rawDesc = "" +
@@ -91,7 +647,57 @@ const file_src_types_cache_v1_cache_proto_rawDesc = "" +
 	"\x12StoreCollectionsPb\x12+\n" +
 	"\x11bundle_collection\x18\x01 \x01(\tR\x10bundleCollection\x12)\n" +
 	"\x10files_collection\x18\x02 \x01(\tR\x0ffilesCollection\x12/\n" +
-	"\x13profiles_collection\x18\x03 \x01(\tR\x12profilesCollectionB>Z<github.com/tinywideclouds/gen-llm/go/types/cache/v1;cache_v1b\x06proto3"
+	"\x13profiles_collection\x18\x03 \x01(\tR\x12profilesCollection\"C\n" +
+	"\rFilterRulesPb\x12\x18\n" +
+	"\ainclude\x18\x01 \x03(\tR\ainclude\x12\x18\n" +
+	"\aexclude\x18\x02 \x03(\tR\aexclude\"\x8c\x01\n" +
+	"\tProfilePb\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1d\n" +
+	"\n" +
+	"rules_yaml\x18\x03 \x01(\tR\trulesYaml\x12\x1d\n" +
+	"\n" +
+	"created_at\x18\x04 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"\n" +
+	"updated_at\x18\x05 \x01(\tR\tupdatedAt\"\xf0\x01\n" +
+	"\x0fCacheAnalysisPb\x12\x1f\n" +
+	"\vtotal_files\x18\x01 \x01(\x05R\n" +
+	"totalFiles\x12(\n" +
+	"\x10total_size_bytes\x18\x02 \x01(\x05R\x0etotalSizeBytes\x12S\n" +
+	"\n" +
+	"extensions\x18\x03 \x03(\v23.src.types.cache.v1.CacheAnalysisPb.ExtensionsEntryR\n" +
+	"extensions\x1a=\n" +
+	"\x0fExtensionsEntry\x12\x10\n" +
+	"\x03key\x18\x01 \x01(\tR\x03key\x12\x14\n" +
+	"\x05value\x18\x02 \x01(\x05R\x05value:\x028\x01\"\x97\x02\n" +
+	"\x0fCacheMetadataPb\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04repo\x18\x02 \x01(\tR\x04repo\x12\x16\n" +
+	"\x06branch\x18\x03 \x01(\tR\x06branch\x12*\n" +
+	"\x11synced_commit_sha\x18\x04 \x01(\tR\x0fsyncedCommitSha\x12$\n" +
+	"\x0elast_synced_at\x18\x05 \x01(\x03R\flastSyncedAt\x12\x1d\n" +
+	"\n" +
+	"file_count\x18\x06 \x01(\x05R\tfileCount\x12\x16\n" +
+	"\x06status\x18\a \x01(\tR\x06status\x12?\n" +
+	"\banalysis\x18\b \x01(\v2#.src.types.cache.v1.CacheAnalysisPbR\banalysis\"a\n" +
+	"\x0eFileMetadataPb\x12\x12\n" +
+	"\x04path\x18\x01 \x01(\tR\x04path\x12\x1d\n" +
+	"\n" +
+	"size_bytes\x18\x02 \x01(\x05R\tsizeBytes\x12\x1c\n" +
+	"\textension\x18\x03 \x01(\tR\textension\"B\n" +
+	"\x14CreateCacheRequestPb\x12\x12\n" +
+	"\x04repo\x18\x01 \x01(\tR\x04repo\x12\x16\n" +
+	"\x06branch\x18\x02 \x01(\tR\x06branch\"[\n" +
+	"\rSyncRequestPb\x12J\n" +
+	"\x0fingestion_rules\x18\x01 \x01(\v2!.src.types.cache.v1.FilterRulesPbR\x0eingestionRules\"l\n" +
+	"\x0eSyncResponsePb\x12\x19\n" +
+	"\bcache_id\x18\x01 \x01(\tR\acacheId\x12\x16\n" +
+	"\x06status\x18\x02 \x01(\tR\x06status\x12'\n" +
+	"\x0ffiles_processed\x18\x03 \x01(\x05R\x0efilesProcessed\"E\n" +
+	"\x10ProfileRequestPb\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12\x1d\n" +
+	"\n" +
+	"rules_yaml\x18\x02 \x01(\tR\trulesYamlB>Z<github.com/tinywideclouds/gen-llm/go/types/cache/v1;cache_v1b\x06proto3"
 
 var (
 	file_src_types_cache_v1_cache_proto_rawDescOnce sync.Once
@@ -105,16 +711,29 @@ func file_src_types_cache_v1_cache_proto_rawDescGZIP() []byte {
 	return file_src_types_cache_v1_cache_proto_rawDescData
 }
 
-var file_src_types_cache_v1_cache_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_src_types_cache_v1_cache_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_src_types_cache_v1_cache_proto_goTypes = []any{
-	(*StoreCollectionsPb)(nil), // 0: src.types.cache.v1.StoreCollectionsPb
+	(*StoreCollectionsPb)(nil),   // 0: src.types.cache.v1.StoreCollectionsPb
+	(*FilterRulesPb)(nil),        // 1: src.types.cache.v1.FilterRulesPb
+	(*ProfilePb)(nil),            // 2: src.types.cache.v1.ProfilePb
+	(*CacheAnalysisPb)(nil),      // 3: src.types.cache.v1.CacheAnalysisPb
+	(*CacheMetadataPb)(nil),      // 4: src.types.cache.v1.CacheMetadataPb
+	(*FileMetadataPb)(nil),       // 5: src.types.cache.v1.FileMetadataPb
+	(*CreateCacheRequestPb)(nil), // 6: src.types.cache.v1.CreateCacheRequestPb
+	(*SyncRequestPb)(nil),        // 7: src.types.cache.v1.SyncRequestPb
+	(*SyncResponsePb)(nil),       // 8: src.types.cache.v1.SyncResponsePb
+	(*ProfileRequestPb)(nil),     // 9: src.types.cache.v1.ProfileRequestPb
+	nil,                          // 10: src.types.cache.v1.CacheAnalysisPb.ExtensionsEntry
 }
 var file_src_types_cache_v1_cache_proto_depIdxs = []int32{
-	0, // [0:0] is the sub-list for method output_type
-	0, // [0:0] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	10, // 0: src.types.cache.v1.CacheAnalysisPb.extensions:type_name -> src.types.cache.v1.CacheAnalysisPb.ExtensionsEntry
+	3,  // 1: src.types.cache.v1.CacheMetadataPb.analysis:type_name -> src.types.cache.v1.CacheAnalysisPb
+	1,  // 2: src.types.cache.v1.SyncRequestPb.ingestion_rules:type_name -> src.types.cache.v1.FilterRulesPb
+	3,  // [3:3] is the sub-list for method output_type
+	3,  // [3:3] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_src_types_cache_v1_cache_proto_init() }
@@ -128,7 +747,7 @@ func file_src_types_cache_v1_cache_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_src_types_cache_v1_cache_proto_rawDesc), len(file_src_types_cache_v1_cache_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
