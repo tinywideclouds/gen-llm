@@ -152,11 +152,11 @@ func (x *BuildCacheRequestPb) GetExpiresAtHint() string {
 }
 
 type BuildCacheResponsePb struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	GeminiCacheId string                 `protobuf:"bytes,1,opt,name=gemini_cache_id,json=geminiCacheId,proto3" json:"gemini_cache_id,omitempty"`
-	ExpiresAt     string                 `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	CompiledCacheId string                 `protobuf:"bytes,1,opt,name=compiled_cache_id,json=compiledCacheId,proto3" json:"compiled_cache_id,omitempty"`
+	ExpiresAt       string                 `protobuf:"bytes,2,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *BuildCacheResponsePb) Reset() {
@@ -189,9 +189,9 @@ func (*BuildCacheResponsePb) Descriptor() ([]byte, []int) {
 	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *BuildCacheResponsePb) GetGeminiCacheId() string {
+func (x *BuildCacheResponsePb) GetCompiledCacheId() string {
 	if x != nil {
-		return x.GeminiCacheId
+		return x.CompiledCacheId
 	}
 	return ""
 }
@@ -276,7 +276,7 @@ type GenerateStreamRequestPb struct {
 	SessionId         string                 `protobuf:"bytes,1,opt,name=session_id,json=sessionId,proto3" json:"session_id,omitempty"`
 	Model             string                 `protobuf:"bytes,2,opt,name=model,proto3" json:"model,omitempty"`
 	History           []*NetworkMessagePb    `protobuf:"bytes,3,rep,name=history,proto3" json:"history,omitempty"`
-	GeminiCacheId     *string                `protobuf:"bytes,4,opt,name=gemini_cache_id,json=geminiCacheId,proto3,oneof" json:"gemini_cache_id,omitempty"`
+	CompiledCacheId   *string                `protobuf:"bytes,4,opt,name=compiled_cache_id,json=compiledCacheId,proto3,oneof" json:"compiled_cache_id,omitempty"`
 	InlineAttachments []*NetworkAttachmentPb `protobuf:"bytes,5,rep,name=inline_attachments,json=inlineAttachments,proto3" json:"inline_attachments,omitempty"`
 	unknownFields     protoimpl.UnknownFields
 	sizeCache         protoimpl.SizeCache
@@ -333,9 +333,9 @@ func (x *GenerateStreamRequestPb) GetHistory() []*NetworkMessagePb {
 	return nil
 }
 
-func (x *GenerateStreamRequestPb) GetGeminiCacheId() string {
-	if x != nil && x.GeminiCacheId != nil {
-		return *x.GeminiCacheId
+func (x *GenerateStreamRequestPb) GetCompiledCacheId() string {
+	if x != nil && x.CompiledCacheId != nil {
+		return *x.CompiledCacheId
 	}
 	return ""
 }
@@ -493,14 +493,13 @@ func (x *ChangeProposalPb) GetSessionId() string {
 }
 
 type CompiledCachePb struct {
-	state      protoimpl.MessageState `protogen:"open.v1"`
-	Id         string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	ExternalId string                 `protobuf:"bytes,2,opt,name=external_id,json=externalId,proto3" json:"external_id,omitempty"` // e.g., "cachedContents/12345"
-	Provider   string                 `protobuf:"bytes,3,opt,name=provider,proto3" json:"provider,omitempty"`                       // e.g., "gemini"
+	state    protoimpl.MessageState `protogen:"open.v1"`
+	Id       string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`             //urn e.g "urn:llm:gemini:cachedContents/12345"
+	Provider string                 `protobuf:"bytes,2,opt,name=provider,proto3" json:"provider,omitempty"` // e.g., "gemini"
 	// Reusing your existing NetworkAttachmentPb
-	AttachmentsUsed []*NetworkAttachmentPb `protobuf:"bytes,4,rep,name=attachments_used,json=attachmentsUsed,proto3" json:"attachments_used,omitempty"`
-	CreatedAt       string                 `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	ExpiresAt       string                 `protobuf:"bytes,6,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
+	AttachmentsUsed []*NetworkAttachmentPb `protobuf:"bytes,3,rep,name=attachments_used,json=attachmentsUsed,proto3" json:"attachments_used,omitempty"`
+	CreatedAt       string                 `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	ExpiresAt       string                 `protobuf:"bytes,5,opt,name=expires_at,json=expiresAt,proto3" json:"expires_at,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -538,13 +537,6 @@ func (*CompiledCachePb) Descriptor() ([]byte, []int) {
 func (x *CompiledCachePb) GetId() string {
 	if x != nil {
 		return x.Id
-	}
-	return ""
-}
-
-func (x *CompiledCachePb) GetExternalId() string {
-	if x != nil {
-		return x.ExternalId
 	}
 	return ""
 }
@@ -654,24 +646,24 @@ const file_src_types_builder_v1_builder_proto_rawDesc = "" +
 	"\x05model\x18\x02 \x01(\tR\x05model\x12K\n" +
 	"\vattachments\x18\x03 \x03(\v2).src.types.builder.v1.NetworkAttachmentPbR\vattachments\x12+\n" +
 	"\x0fexpires_at_hint\x18\x04 \x01(\tH\x00R\rexpiresAtHint\x88\x01\x01B\x12\n" +
-	"\x10_expires_at_hint\"]\n" +
-	"\x14BuildCacheResponsePb\x12&\n" +
-	"\x0fgemini_cache_id\x18\x01 \x01(\tR\rgeminiCacheId\x12\x1d\n" +
+	"\x10_expires_at_hint\"a\n" +
+	"\x14BuildCacheResponsePb\x12*\n" +
+	"\x11compiled_cache_id\x18\x01 \x01(\tR\x0fcompiledCacheId\x12\x1d\n" +
 	"\n" +
 	"expires_at\x18\x02 \x01(\tR\texpiresAt\"n\n" +
 	"\x10NetworkMessagePb\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04role\x18\x02 \x01(\tR\x04role\x12\x18\n" +
 	"\acontent\x18\x03 \x01(\tR\acontent\x12\x1c\n" +
-	"\ttimestamp\x18\x04 \x01(\tR\ttimestamp\"\xab\x02\n" +
+	"\ttimestamp\x18\x04 \x01(\tR\ttimestamp\"\xb1\x02\n" +
 	"\x17GenerateStreamRequestPb\x12\x1d\n" +
 	"\n" +
 	"session_id\x18\x01 \x01(\tR\tsessionId\x12\x14\n" +
 	"\x05model\x18\x02 \x01(\tR\x05model\x12@\n" +
-	"\ahistory\x18\x03 \x03(\v2&.src.types.builder.v1.NetworkMessagePbR\ahistory\x12+\n" +
-	"\x0fgemini_cache_id\x18\x04 \x01(\tH\x00R\rgeminiCacheId\x88\x01\x01\x12X\n" +
-	"\x12inline_attachments\x18\x05 \x03(\v2).src.types.builder.v1.NetworkAttachmentPbR\x11inlineAttachmentsB\x12\n" +
-	"\x10_gemini_cache_id\"F\n" +
+	"\ahistory\x18\x03 \x03(\v2&.src.types.builder.v1.NetworkMessagePbR\ahistory\x12/\n" +
+	"\x11compiled_cache_id\x18\x04 \x01(\tH\x00R\x0fcompiledCacheId\x88\x01\x01\x12X\n" +
+	"\x12inline_attachments\x18\x05 \x03(\v2).src.types.builder.v1.NetworkAttachmentPbR\x11inlineAttachmentsB\x14\n" +
+	"\x12_compiled_cache_id\"F\n" +
 	"\vFileStatePb\x12\x18\n" +
 	"\acontent\x18\x01 \x01(\tR\acontent\x12\x1d\n" +
 	"\n" +
@@ -688,17 +680,15 @@ const file_src_types_builder_v1_builder_proto_rawDesc = "" +
 	"\n" +
 	"session_id\x18\a \x01(\tR\tsessionIdB\b\n" +
 	"\x06_patchB\x0e\n" +
-	"\f_new_content\"\xf2\x01\n" +
+	"\f_new_content\"\xd1\x01\n" +
 	"\x0fCompiledCachePb\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1f\n" +
-	"\vexternal_id\x18\x02 \x01(\tR\n" +
-	"externalId\x12\x1a\n" +
-	"\bprovider\x18\x03 \x01(\tR\bprovider\x12T\n" +
-	"\x10attachments_used\x18\x04 \x03(\v2).src.types.builder.v1.NetworkAttachmentPbR\x0fattachmentsUsed\x12\x1d\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
+	"\bprovider\x18\x02 \x01(\tR\bprovider\x12T\n" +
+	"\x10attachments_used\x18\x03 \x03(\v2).src.types.builder.v1.NetworkAttachmentPbR\x0fattachmentsUsed\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\tR\tcreatedAt\x12\x1d\n" +
+	"created_at\x18\x04 \x01(\tR\tcreatedAt\x12\x1d\n" +
 	"\n" +
-	"expires_at\x18\x06 \x01(\tR\texpiresAt\"f\n" +
+	"expires_at\x18\x05 \x01(\tR\texpiresAt\"f\n" +
 	"\tSessionPb\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12*\n" +
 	"\x11compiled_cache_id\x18\x02 \x01(\tR\x0fcompiledCacheId\x12\x1d\n" +
