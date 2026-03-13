@@ -196,6 +196,66 @@ func (x *BuildCacheResponsePb) GetExpiresAt() string {
 	return ""
 }
 
+type GenerateRequestPb struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Model         string                 `protobuf:"bytes,1,opt,name=model,proto3" json:"model,omitempty"`
+	SystemPrompt  string                 `protobuf:"bytes,2,opt,name=system_prompt,json=systemPrompt,proto3" json:"system_prompt,omitempty"`
+	Prompt        string                 `protobuf:"bytes,3,opt,name=prompt,proto3" json:"prompt,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GenerateRequestPb) Reset() {
+	*x = GenerateRequestPb{}
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GenerateRequestPb) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GenerateRequestPb) ProtoMessage() {}
+
+func (x *GenerateRequestPb) ProtoReflect() protoreflect.Message {
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GenerateRequestPb.ProtoReflect.Descriptor instead.
+func (*GenerateRequestPb) Descriptor() ([]byte, []int) {
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GenerateRequestPb) GetModel() string {
+	if x != nil {
+		return x.Model
+	}
+	return ""
+}
+
+func (x *GenerateRequestPb) GetSystemPrompt() string {
+	if x != nil {
+		return x.SystemPrompt
+	}
+	return ""
+}
+
+func (x *GenerateRequestPb) GetPrompt() string {
+	if x != nil {
+		return x.Prompt
+	}
+	return ""
+}
+
 type GenerateResponsePb struct {
 	state               protoimpl.MessageState `protogen:"open.v1"`
 	Content             string                 `protobuf:"bytes,1,opt,name=content,proto3" json:"content,omitempty"`
@@ -208,7 +268,7 @@ type GenerateResponsePb struct {
 
 func (x *GenerateResponsePb) Reset() {
 	*x = GenerateResponsePb{}
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[3]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -220,7 +280,7 @@ func (x *GenerateResponsePb) String() string {
 func (*GenerateResponsePb) ProtoMessage() {}
 
 func (x *GenerateResponsePb) ProtoReflect() protoreflect.Message {
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[3]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -233,7 +293,7 @@ func (x *GenerateResponsePb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateResponsePb.ProtoReflect.Descriptor instead.
 func (*GenerateResponsePb) Descriptor() ([]byte, []int) {
-	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{3}
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GenerateResponsePb) GetContent() string {
@@ -276,7 +336,7 @@ type NetworkMessagePb struct {
 
 func (x *NetworkMessagePb) Reset() {
 	*x = NetworkMessagePb{}
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[4]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -288,7 +348,7 @@ func (x *NetworkMessagePb) String() string {
 func (*NetworkMessagePb) ProtoMessage() {}
 
 func (x *NetworkMessagePb) ProtoReflect() protoreflect.Message {
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[4]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -301,7 +361,7 @@ func (x *NetworkMessagePb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NetworkMessagePb.ProtoReflect.Descriptor instead.
 func (*NetworkMessagePb) Descriptor() ([]byte, []int) {
-	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{4}
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *NetworkMessagePb) GetId() string {
@@ -345,7 +405,7 @@ type GenerateStreamRequestPb struct {
 
 func (x *GenerateStreamRequestPb) Reset() {
 	*x = GenerateStreamRequestPb{}
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[5]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -357,7 +417,7 @@ func (x *GenerateStreamRequestPb) String() string {
 func (*GenerateStreamRequestPb) ProtoMessage() {}
 
 func (x *GenerateStreamRequestPb) ProtoReflect() protoreflect.Message {
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[5]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -370,7 +430,7 @@ func (x *GenerateStreamRequestPb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GenerateStreamRequestPb.ProtoReflect.Descriptor instead.
 func (*GenerateStreamRequestPb) Descriptor() ([]byte, []int) {
-	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{5}
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GenerateStreamRequestPb) GetSessionId() string {
@@ -418,7 +478,7 @@ type FileStatePb struct {
 
 func (x *FileStatePb) Reset() {
 	*x = FileStatePb{}
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[6]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -430,7 +490,7 @@ func (x *FileStatePb) String() string {
 func (*FileStatePb) ProtoMessage() {}
 
 func (x *FileStatePb) ProtoReflect() protoreflect.Message {
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[6]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -443,7 +503,7 @@ func (x *FileStatePb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileStatePb.ProtoReflect.Descriptor instead.
 func (*FileStatePb) Descriptor() ([]byte, []int) {
-	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{6}
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *FileStatePb) GetContent() string {
@@ -475,7 +535,7 @@ type ChangeProposalPb struct {
 
 func (x *ChangeProposalPb) Reset() {
 	*x = ChangeProposalPb{}
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[7]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -487,7 +547,7 @@ func (x *ChangeProposalPb) String() string {
 func (*ChangeProposalPb) ProtoMessage() {}
 
 func (x *ChangeProposalPb) ProtoReflect() protoreflect.Message {
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[7]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -500,7 +560,7 @@ func (x *ChangeProposalPb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ChangeProposalPb.ProtoReflect.Descriptor instead.
 func (*ChangeProposalPb) Descriptor() ([]byte, []int) {
-	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{7}
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *ChangeProposalPb) GetId() string {
@@ -565,7 +625,7 @@ type CompiledCachePb struct {
 
 func (x *CompiledCachePb) Reset() {
 	*x = CompiledCachePb{}
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[8]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -577,7 +637,7 @@ func (x *CompiledCachePb) String() string {
 func (*CompiledCachePb) ProtoMessage() {}
 
 func (x *CompiledCachePb) ProtoReflect() protoreflect.Message {
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[8]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -590,7 +650,7 @@ func (x *CompiledCachePb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompiledCachePb.ProtoReflect.Descriptor instead.
 func (*CompiledCachePb) Descriptor() ([]byte, []int) {
-	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{8}
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CompiledCachePb) GetId() string {
@@ -639,7 +699,7 @@ type SessionPb struct {
 
 func (x *SessionPb) Reset() {
 	*x = SessionPb{}
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[9]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -651,7 +711,7 @@ func (x *SessionPb) String() string {
 func (*SessionPb) ProtoMessage() {}
 
 func (x *SessionPb) ProtoReflect() protoreflect.Message {
-	mi := &file_src_types_builder_v1_builder_proto_msgTypes[9]
+	mi := &file_src_types_builder_v1_builder_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -664,7 +724,7 @@ func (x *SessionPb) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SessionPb.ProtoReflect.Descriptor instead.
 func (*SessionPb) Descriptor() ([]byte, []int) {
-	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{9}
+	return file_src_types_builder_v1_builder_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *SessionPb) GetId() string {
@@ -707,7 +767,11 @@ const file_src_types_builder_v1_builder_proto_rawDesc = "" +
 	"\x14BuildCacheResponsePb\x12*\n" +
 	"\x11compiled_cache_id\x18\x01 \x01(\tR\x0fcompiledCacheId\x12\x1d\n" +
 	"\n" +
-	"expires_at\x18\x02 \x01(\tR\texpiresAt\"\xb5\x01\n" +
+	"expires_at\x18\x02 \x01(\tR\texpiresAt\"f\n" +
+	"\x11GenerateRequestPb\x12\x14\n" +
+	"\x05model\x18\x01 \x01(\tR\x05model\x12#\n" +
+	"\rsystem_prompt\x18\x02 \x01(\tR\fsystemPrompt\x12\x16\n" +
+	"\x06prompt\x18\x03 \x01(\tR\x06prompt\"\xb5\x01\n" +
 	"\x12GenerateResponsePb\x12\x18\n" +
 	"\acontent\x18\x01 \x01(\tR\acontent\x12#\n" +
 	"\rfinish_reason\x18\x02 \x01(\tR\ffinishReason\x12,\n" +
@@ -769,22 +833,23 @@ func file_src_types_builder_v1_builder_proto_rawDescGZIP() []byte {
 	return file_src_types_builder_v1_builder_proto_rawDescData
 }
 
-var file_src_types_builder_v1_builder_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_src_types_builder_v1_builder_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_src_types_builder_v1_builder_proto_goTypes = []any{
 	(*NetworkAttachmentPb)(nil),     // 0: src.types.builder.v1.NetworkAttachmentPb
 	(*BuildCacheRequestPb)(nil),     // 1: src.types.builder.v1.BuildCacheRequestPb
 	(*BuildCacheResponsePb)(nil),    // 2: src.types.builder.v1.BuildCacheResponsePb
-	(*GenerateResponsePb)(nil),      // 3: src.types.builder.v1.GenerateResponsePb
-	(*NetworkMessagePb)(nil),        // 4: src.types.builder.v1.NetworkMessagePb
-	(*GenerateStreamRequestPb)(nil), // 5: src.types.builder.v1.GenerateStreamRequestPb
-	(*FileStatePb)(nil),             // 6: src.types.builder.v1.FileStatePb
-	(*ChangeProposalPb)(nil),        // 7: src.types.builder.v1.ChangeProposalPb
-	(*CompiledCachePb)(nil),         // 8: src.types.builder.v1.CompiledCachePb
-	(*SessionPb)(nil),               // 9: src.types.builder.v1.SessionPb
+	(*GenerateRequestPb)(nil),       // 3: src.types.builder.v1.GenerateRequestPb
+	(*GenerateResponsePb)(nil),      // 4: src.types.builder.v1.GenerateResponsePb
+	(*NetworkMessagePb)(nil),        // 5: src.types.builder.v1.NetworkMessagePb
+	(*GenerateStreamRequestPb)(nil), // 6: src.types.builder.v1.GenerateStreamRequestPb
+	(*FileStatePb)(nil),             // 7: src.types.builder.v1.FileStatePb
+	(*ChangeProposalPb)(nil),        // 8: src.types.builder.v1.ChangeProposalPb
+	(*CompiledCachePb)(nil),         // 9: src.types.builder.v1.CompiledCachePb
+	(*SessionPb)(nil),               // 10: src.types.builder.v1.SessionPb
 }
 var file_src_types_builder_v1_builder_proto_depIdxs = []int32{
 	0, // 0: src.types.builder.v1.BuildCacheRequestPb.sources:type_name -> src.types.builder.v1.NetworkAttachmentPb
-	4, // 1: src.types.builder.v1.GenerateStreamRequestPb.history:type_name -> src.types.builder.v1.NetworkMessagePb
+	5, // 1: src.types.builder.v1.GenerateStreamRequestPb.history:type_name -> src.types.builder.v1.NetworkMessagePb
 	0, // 2: src.types.builder.v1.GenerateStreamRequestPb.inline_attachments:type_name -> src.types.builder.v1.NetworkAttachmentPb
 	0, // 3: src.types.builder.v1.CompiledCachePb.sources:type_name -> src.types.builder.v1.NetworkAttachmentPb
 	4, // [4:4] is the sub-list for method output_type
@@ -801,15 +866,15 @@ func file_src_types_builder_v1_builder_proto_init() {
 	}
 	file_src_types_builder_v1_builder_proto_msgTypes[0].OneofWrappers = []any{}
 	file_src_types_builder_v1_builder_proto_msgTypes[1].OneofWrappers = []any{}
-	file_src_types_builder_v1_builder_proto_msgTypes[5].OneofWrappers = []any{}
-	file_src_types_builder_v1_builder_proto_msgTypes[7].OneofWrappers = []any{}
+	file_src_types_builder_v1_builder_proto_msgTypes[6].OneofWrappers = []any{}
+	file_src_types_builder_v1_builder_proto_msgTypes[8].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_src_types_builder_v1_builder_proto_rawDesc), len(file_src_types_builder_v1_builder_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
